@@ -75,12 +75,12 @@ app.post("/intrinsicform", function (req, res) {
             x10=1;
         }
         var c1=0.04514957,c2=-0.57395445,c3=0.61455102,c4=1.59916944,c5=-0.66777694,c6=2.79924935,c7=0.26971087,c8=-0.82022929,c9=-1.32007493,c10=-0.26087906;
-        milkYeild.push(c1*x1+c2*x2+c3*x3+c4*x4+c5*x5+c6*x6+c7*x7+c8*x8+c9*x9+c10*x10+3.5562231567465625);
+        var x = c1 * x1 + c2 * x2 + c3 * x3 + c4 * x4 + c5 * x5 + c6 * x6 + c7 * x7 + c8 * x8 + c9 * x9 + c10 * x10 + 3.5562231567465625;
+        var xy = x.toFixed(2);
+        milkYeild.push(xy);
     }
     console.log(milkYeild)
-    
-    console.log(data);
-    console.log(JSON.stringify(data));
+    res.render('output', { milkYeild: milkYeild });
 
     // const options = {
     //     hostname: '127.0.0.1',
